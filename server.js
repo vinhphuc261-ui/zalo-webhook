@@ -7,6 +7,12 @@ app.get("/", (req, res) => {
   res.send("Zalo Webhook is running!");
 });
 
+// Zalo xác thực webhook
+app.get("/webhook/:verifier", (req, res) => {
+  res.send(req.params.verifier);
+});
+
+// Nhận webhook
 app.post("/webhook", (req, res) => {
   console.log("Zalo webhook:", req.body);
   res.sendStatus(200);
